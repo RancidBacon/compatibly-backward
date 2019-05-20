@@ -2,6 +2,8 @@
 
 *Fight arbitrary OS version requirement inflation (primarily on Mac OS X/macOS)*
 
+See also: <http://www.labradoc.com/i/follower/p/notes-run-new-software-on-old-systems>
+
 ### Why?
 
 See also:
