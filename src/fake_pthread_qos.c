@@ -23,9 +23,13 @@
 
         DYLD_FORCE_FLAT_NAMESPACE=1 DYLD_INSERT_LIBRARIES=fake_pthread_qos.dylib /<path>/Otter\ Browser.app/Contents/MacOS/Otter\ Browser
 
-
-
     Allows running the app (modulo a bunch of unknown selector messages & Qt paint messages) enough to load a web page.
+
+
+    Found another project with the goal of running Xcode on earlier OS versions which includes a similar workaround:
+
+        <https://github.com/landonf/XcodePostFacto/blob/9987e9f13041956651f6c9bee1243f95da3e3178/xpf-bootstrap/rebind_table.cpp#L58-L62>
+
 
     Eventually another missing function is hit (after clicking a link?):
 
@@ -47,6 +51,11 @@
       * However return type `dispatch_queue_attr_t` is marked as SDK macOS 10.6+, so it might be possible to just
         return the first argument `attr`.
         <https://developer.apple.com/documentation/dispatch/dispatch_queue_attr_t?language=objc>
+
+
+    The XPF project above does have function stub replacements but does note they may have thread safety consequences:
+
+       <https://github.com/landonf/XcodePostFacto/blob/9987e9f13041956651f6c9bee1243f95da3e3178/xpf-bootstrap/rebind_table.cpp#L65-L103>
 
 
     Note: The OS & browser message dialogs after a crash cause another crash so you may need to run:
